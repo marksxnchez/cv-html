@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Marc Sanchez Vallespi · Marketing, ventas y comunicación. CV interactivo.">
+<meta name="description" content="Marc Sanchez Vallespi · Marketing, comunicación y eventos. CV interactivo en español, català e English.">
 <meta property="og:title" content="Marc Sanchez Vallespi">
-<meta property="og:description" content="Marketing, ventas y comunicación. No es un CV: es una campaña.">
+<meta property="og:description" content="Marketing, comunicación y eventos. No es un CV: es una campaña.">
 <meta property="og:image" content="https://marksxnchez.github.io/cv-html/marc.jpg">
 <meta property="og:url" content="https://marksxnchez.github.io/cv-html/">
 <meta name="twitter:card" content="summary">
@@ -118,6 +118,7 @@ section:last-of-type{border-bottom:0}
 .ad h1 .w > span{display:inline-block;animation:rise .75s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
 @keyframes rise{from{transform:translateY(108%)}}
 .ad h1 .rot{color:#B4C4FF}
+.ad h1 .rot.long{font-size:.72em}
 .ad h1 .rot.out > span{animation:drop .32s ease-in both}
 @keyframes drop{to{transform:translateY(-108%)}}
 .ad .sub{animation:fadeUp .8s .45s cubic-bezier(.2,.8,.2,1) both}
@@ -341,8 +342,9 @@ h1,h2,h3,p,dd{overflow-wrap:break-word}
     <span class="utm mono">?utm_source=cv&amp;utm_campaign=marc_2026</span>
     <span class="mstage" id="mstage" aria-hidden="true">01 · Awareness</span>
     <div class="lang" role="group" aria-label="Idioma / Language">
-      <button id="l-es" type="button" aria-pressed="true">ES</button>
-      <button id="l-en" type="button" aria-pressed="false">EN</button>
+      <button id="l-es" type="button" aria-pressed="true" lang="es">ES</button>
+      <button id="l-ca" type="button" aria-pressed="false" lang="ca">CA</button>
+      <button id="l-en" type="button" aria-pressed="false" lang="en">EN</button>
     </div>
   </div>
   <div class="mprog" aria-hidden="true"><i id="mbar"></i></div>
@@ -468,16 +470,14 @@ const T = {
   A:{h:"Tu próximo fichaje en",rot:["marketing.","eventos.","comunicación.","cuentas."],s:"Más de cinco años creando campañas, abriendo clientes y cuidando el CRM. Grado en Marketing, inglés profesional y base en Barcelona."},
   B:{h:"Campañas que acaban en clientes.",s:"Me muevo entre marketing, comunicación y ventas. Diseño la acción, hablo con el cliente y hago el seguimiento hasta el final."},
   C:{h:"No es un CV. Es una campaña.",s:"Y como toda campaña, se mide por resultados. El KPI de esta es sencillo: una primera conversación contigo."},
-  abHint:"Elige tu titular favorito",
   stats:[[5,"+","años de experiencia"],[5,"","empresas"],[5,"","idiomas"],[5,"","ferias europeas"]],
   marq:["Marketing","Ventas","Comunicación","Gestión de cuentas","Eventos","Marketing digital","CRM","Desarrollo de negocio"],
   adCta:"Ver la campaña ↓",briefT:"Brief de campaña",
   brief:[["Producto","Marc Sanchez Vallespi"],["Encaja en","Marketing · Comunicación · Ventas · Gestión de cuentas · Eventos · Marketing digital"],["Público","Empresas de cualquier sector, en B2B o B2C"],["Mercado","Barcelona y Cataluña · abierto a Europa"],["Formato","Híbrido o presencial"],["KPI","Una primera conversación"]],
-  facts:["5 empresas desde 2020","Grado en Marketing (UdG)","Erasmus en Oslo","Inglés profesional"],
   s2T:"Tres razones para no pasar de largo",
-  props:[["Vendo lo que comunico","No me quedo en la pieza creativa. He llevado cuentas, preparado propuestas y seguido a cada cliente hasta el final."],
-         ["Del dato al apretón de manos","Leads y oportunidades en el CRM, campañas en impreso y digital, y trabajo de campo en ferias como IFAT, SICUR o A+A."],
-         ["Inglés de reunión, no de examen","Cuentas internacionales, llamadas y videollamadas comerciales en inglés, y cinco meses viviendo en Oslo."]],
+  props:[["Vendo lo que comunico","No me quedo en la pieza creativa. He llevado cuentas, preparado propuestas y seguido a cada cliente hasta el final.",0],
+         ["Del dato al apretón de manos","Leads y oportunidades en el CRM, campañas en impreso y digital, y trabajo de campo en ferias como IFAT, SICUR o A+A.",1],
+         ["Inglés de reunión, no de examen","Cuentas internacionales, llamadas y videollamadas comerciales en inglés, y cinco meses viviendo en Oslo.",2]],
   reachT:"De Barcelona a media Europa",reachP:"Las grandes ferias que he recorrido y las ciudades donde he estudiado. Pasa el cursor o toca la lista para ver cada ruta.",
   s3T:"Lo que ya está probado en el mercado",s3P:"Cada etapa con sus fechas de emisión. Dime qué perfil buscas y te marco lo que encaja.",
   segQ:"Segmenta: ¿qué buscas?",g1:"Experiencia",g2:"Formación",rel:"Relevante para ti",
@@ -489,98 +489,128 @@ const T = {
   cLabel:"Perfil de LinkedIn",cOpen:"Abrir LinkedIn ↗",cCopy:"Copiar enlace",copied:"Enlace copiado.",copyFail:"Selecciona el enlace y cópialo a mano.",
   q0:"Marcarme como lead cualificado",q1:"Lead cualificado",qMsg:"Embudo completado. Te espero en LinkedIn.",
   foot:"Campaña activa · octubre 2026",fair:"Feria",study:"Estudios",home:"base",mapLabel:"Mapa de ferias y ciudades"},
+ ca:{railT:"El teu recorregut",rateT:"de l'embut recorregut",
+  stages:["Awareness","Interès","Consideració","Avaluació","Conversió"],
+  s1:"Awareness · Descoberta",s2:"Interès · Proposta de valor",s3:"Consideració · Historial",s4:"Avaluació · Especificacions",s5:"Conversió",
+  ad:"Patrocinat · Variant ",prodSub:"Màrqueting · Vendes · Comunicació · Barcelona",live:"Disponible ara",
+  A:{h:"El teu proper fitxatge en",rot:["màrqueting.","esdeveniments.","comunicació.","comptes."],s:"Més de cinc anys creant campanyes, obrint clients i cuidant el CRM. Grau en Màrqueting, anglès professional i base a Barcelona."},
+  B:{h:"Campanyes que acaben en clients.",s:"Em moc entre el màrqueting, la comunicació i les vendes. Dissenyo l'acció, parlo amb el client i en faig el seguiment fins al final."},
+  C:{h:"No és un CV. És una campanya.",s:"I com tota campanya, es mesura per resultats. El KPI d'aquesta és senzill: una primera conversa amb tu."},
+  stats:[[5,"+","anys d'experiència"],[5,"","empreses"],[5,"","idiomes"],[5,"","fires europees"]],
+  marq:["Màrqueting","Vendes","Comunicació","Gestió de comptes","Esdeveniments","Màrqueting digital","CRM","Desenvolupament de negoci"],
+  adCta:"Veure la campanya ↓",briefT:"Brief de campanya",
+  brief:[["Producte","Marc Sanchez Vallespi"],["Encaixa en","Màrqueting · Comunicació · Vendes · Gestió de comptes · Esdeveniments · Màrqueting digital"],["Públic","Empreses de qualsevol sector, en B2B o B2C"],["Mercat","Barcelona i Catalunya · obert a Europa"],["Format","Híbrid o presencial"],["KPI","Una primera conversa"]],
+  s2T:"Tres raons per no passar de llarg",
+  props:[["Venc el que comunico","No em quedo en la peça creativa. He portat comptes, preparat propostes i seguit cada client fins al final.",0],
+         ["De la dada a l'encaixada de mans","Leads i oportunitats al CRM, campanyes en imprès i digital, i treball de camp a fires com IFAT, SICUR o A+A.",1],
+         ["Anglès de reunió, no d'examen","Comptes internacionals, trucades i videotrucades comercials en anglès, i cinc mesos vivint a Oslo.",2]],
+  reachT:"De Barcelona a mitja Europa",reachP:"Les grans fires que he recorregut i les ciutats on he estudiat. Passa el cursor o toca la llista per veure cada ruta.",
+  s3T:"El que ja està provat al mercat",s3P:"Cada etapa amb les seves dates d'emissió. Digues-me quin perfil busques i et marco el que encaixa.",
+  segQ:"Segmenta: què busques?",g1:"Experiència",g2:"Formació",rel:"Rellevant per a tu",
+  clear:"Treure la segmentació",pitch0:"Tria un o diversos segments i et marco les etapes que encaixen, amb un resum a mida.",
+  pitchLead:"Si busques ",and:" i ",air:"Emissió",
+  s4T:"El que ve de sèrie",s4P:"Nivells explicats tal com són: el que faig servir cada dia, el que tinc acreditat i el que encara aprenc.",
+  langsT:"Idiomes",skillsT:"Competències",sectorsT:"Sectors que segueixo de prop",
+  cTitle:"El teu torn: converteix.",cText:"Base a Barcelona, obert a Catalunya i a Europa. Híbrid o presencial. El següent pas és un missatge per LinkedIn.",
+  cLabel:"Perfil de LinkedIn",cOpen:"Obrir LinkedIn ↗",cCopy:"Copiar l'enllaç",copied:"Enllaç copiat.",copyFail:"Selecciona l'enllaç i copia'l a mà.",
+  q0:"Marcar-me com a lead qualificat",q1:"Lead qualificat",qMsg:"Embut completat. T'espero a LinkedIn.",
+  foot:"Campanya activa · octubre 2026",fair:"Fira",study:"Estudis",home:"base",mapLabel:"Mapa de fires i ciutats"},
  en:{railT:"Your journey",rateT:"of the funnel completed",
   stages:["Awareness","Interest","Consideration","Evaluation","Conversion"],
   s1:"Awareness · Discovery",s2:"Interest · Value proposition",s3:"Consideration · Track record",s4:"Evaluation · Specs",s5:"Conversion",
-  ad:"Sponsored · Variant ",prodSub:"Marketing · Sales · Communication · Barcelona",live:"Available now",
-  A:{h:"Your next hire in",rot:["marketing.","events.","communication.","accounts."],s:"Over five years building campaigns, opening clients and looking after the CRM. Marketing degree, professional English, based in Barcelona."},
-  B:{h:"Campaigns that end in clients.",s:"I move between marketing, communication and sales. I plan the action, talk to the client and follow up to the end."},
-  C:{h:"Not a CV. A campaign.",s:"And like every campaign, it's measured by results. This one's KPI is simple: a first conversation with you."},
-  abHint:"Pick your favourite headline",
-  stats:[[5,"+","years of experience"],[5,"","companies"],[5,"","languages"],[5,"","European trade fairs"]],
-  marq:["Marketing","Sales","Communication","Account management","Events","Digital marketing","CRM","Business development"],
+  ad:"Sponsored · Variant ",prodSub:"International marketing · Communication · Events",live:"Ready to relocate in Europe",
+  A:{h:"Your next hire in",rot:["marketing.","events.","communication.","Europe."],s:"Barcelona-based marketer with international B2B accounts, professional English and five months lived in Oslo. Ready to work anywhere in Europe."},
+  B:{h:"Built in Barcelona. Ready for Europe.",s:"International accounts, campaigns and trade fairs, handled in English, Spanish and Catalan. Open to relocating for the right role."},
+  C:{h:"Not a CV. A campaign.",s:"And like every campaign, it's measured by results. This one's KPI is simple: a first call with you."},
+  stats:[[5,"","languages"],[5,"","European trade fairs"],[5,"+","years of experience"],[5,"","companies"]],
+  marq:["International marketing","Account management","Trade fairs","Events","Communication","Digital marketing","CRM","Business development"],
   adCta:"See the campaign ↓",briefT:"Campaign brief",
-  brief:[["Product","Marc Sanchez Vallespi"],["Fits in","Marketing · Communication · Sales · Account management · Events · Digital marketing"],["Audience","Companies in any sector, B2B or B2C"],["Market","Barcelona & Catalonia · open to Europe"],["Format","Hybrid or on-site"],["KPI","A first conversation"]],
-  facts:["5 companies since 2020","Marketing degree (UdG)","Erasmus in Oslo","Professional English"],
-  s2T:"Three reasons not to scroll past",
-  props:[["I sell what I communicate","I don't stop at the creative. I've managed accounts, prepared proposals and followed every client through to the end."],
-         ["From data to handshake","Leads and opportunities in the CRM, print and digital campaigns, and field work at fairs like IFAT, SICUR or A+A."],
-         ["Meeting-room English","International accounts, sales calls and video meetings in English, and five months living in Oslo."]],
-  reachT:"From Barcelona across Europe",reachP:"The major trade fairs I've walked and the cities where I studied. Hover or tap the list to see each route.",
-  s3T:"Already tested in the market",s3P:"Each stage with its flight dates. Tell me what profile you need and I'll highlight what fits.",
+  brief:[["Product","Marc Sanchez Vallespi"],["Fits in","International marketing · Account management · Events & trade fairs · Communication · Digital marketing"],["Audience","International companies and teams across Europe"],["Market","Europe-wide · ready to relocate · Barcelona base"],["Format","On-site or hybrid"],["KPI","A first call with you"]],
+  s2T:"Three reasons to hire across borders",
+  props:[["Meeting-room English","Sales calls, client visits and long video meetings in English with international accounts. B2 certified, and five months living in Oslo.",2],
+         ["At home at European trade fairs","I've walked IFAT in Munich, Ambiente in Frankfurt and A+A in Düsseldorf, plus SICUR and Expoquimia in Spain.",1],
+         ["From data to handshake","Leads and opportunities in the CRM, print and digital campaigns, and follow-up with every client through to the end.",0]],
+  reachT:"Already moving across Europe",reachP:"The major trade fairs I've walked and the cities where I studied. Hover or tap the list to see each route.",
+  s3T:"Track record with international reach",s3P:"Each stage with its flight dates. International work is highlighted; pick other segments to see what else fits.",
   segQ:"Segment: what do you need?",g1:"Experience",g2:"Education",rel:"Relevant to you",
   clear:"Clear segments",pitch0:"Pick one or more segments and I'll highlight the stages that fit, with a tailored summary.",
   pitchLead:"If you need ",and:" and ",air:"Flight",
-  s4T:"Included as standard",s4P:"Levels stated as they are: what I use daily, what I have certified and what I'm still learning.",
+  s4T:"Built for international teams",s4P:"Levels stated as they are: what I use daily, what I have certified and what I'm still learning.",
   langsT:"Languages",skillsT:"Skills",sectorsT:"Sectors I follow closely",
-  cTitle:"Your move: convert.",cText:"Based in Barcelona, open to Catalonia and Europe. Hybrid or on-site. The next step is a message on LinkedIn.",
+  cTitle:"Your move: let's talk.",cText:"Based in Barcelona and ready to relocate within Europe. On-site or hybrid. The next step is a message on LinkedIn.",
   cLabel:"LinkedIn profile",cOpen:"Open LinkedIn ↗",cCopy:"Copy link",copied:"Link copied.",copyFail:"Select the link and copy it manually.",
   q0:"Mark me as a qualified lead",q1:"Qualified lead",qMsg:"Funnel complete. See you on LinkedIn.",
   foot:"Campaign live · October 2026",fair:"Fair",study:"Study",home:"home base",mapLabel:"Map of trade fairs and cities"}
 };
 
 const TAGS = {
- b2b:{es:"Marketing B2B",en:"B2B marketing",p:{es:"he trabajado con cuentas B2B de sectores industriales, en campañas impresas y digitales.",en:"I've worked with B2B accounts in industrial sectors, across print and digital campaigns."}},
- negocio:{es:"Desarrollo de negocio",en:"Business development",p:{es:"desde 2020 he hecho captación, venta consultiva, propuestas comerciales y fidelización en cinco empresas.",en:"since 2020 I've done prospecting, consultative selling, commercial proposals and client retention across five companies."}},
- ferias:{es:"Ferias y eventos",en:"Trade fairs & events",p:{es:"he recorrido IFAT, SICUR, Ambiente, Expoquimia y A+A, y he apoyado eventos comerciales desde mis primeras prácticas.",en:"I've walked IFAT, SICUR, Ambiente, Expoquimia and A+A, and supported commercial events since my first placement."}},
- crm:{es:"CRM y leads",en:"CRM & leads",p:{es:"he mantenido CRM, seguido oportunidades y generado leads, con HubSpot y Pipedrive.",en:"I've maintained CRMs, tracked opportunities and generated leads, using HubSpot and Pipedrive."}},
- intl:{es:"Perfil internacional",en:"International profile",p:{es:"he llevado cuentas internacionales con llamadas, visitas y videollamadas en inglés, y viví cinco meses en Oslo.",en:"I've handled international accounts through calls, visits and video meetings in English, and lived in Oslo for five months."}},
- digital:{es:"Marketing digital",en:"Digital marketing",p:{es:"he llevado redes sociales, contenidos, personalización web y email marketing, y estudié marketing digital en Noruega.",en:"I've run social media, content, website customisation and email marketing, and studied digital marketing in Norway."}}
+ b2b:{es:"Marketing B2B",ca:"Màrqueting B2B",en:"B2B marketing",p:{es:"he trabajado con cuentas B2B de sectores industriales, en campañas impresas y digitales.",ca:"he treballat amb comptes B2B de sectors industrials, en campanyes impreses i digitals.",en:"I've worked with B2B accounts in industrial sectors, across print and digital campaigns."}},
+ negocio:{es:"Desarrollo de negocio",ca:"Desenvolupament de negoci",en:"Business development",p:{es:"desde 2020 he hecho captación, venta consultiva, propuestas comerciales y fidelización en cinco empresas.",ca:"des del 2020 he fet captació, venda consultiva, propostes comercials i fidelització en cinc empreses.",en:"since 2020 I've done prospecting, consultative selling, commercial proposals and client retention across five companies."}},
+ ferias:{es:"Ferias y eventos",ca:"Fires i esdeveniments",en:"Trade fairs & events",p:{es:"he recorrido IFAT, SICUR, Ambiente, Expoquimia y A+A, y he apoyado eventos comerciales desde mis primeras prácticas.",ca:"he recorregut IFAT, SICUR, Ambiente, Expoquimia i A+A, i he donat suport a esdeveniments comercials des de les primeres pràctiques.",en:"I've walked IFAT, SICUR, Ambiente, Expoquimia and A+A, and supported commercial events since my first placement."}},
+ crm:{es:"CRM y leads",ca:"CRM i leads",en:"CRM & leads",p:{es:"he mantenido CRM, seguido oportunidades y generado leads, con HubSpot y Pipedrive.",ca:"he mantingut CRM, seguit oportunitats i generat leads, amb HubSpot i Pipedrive.",en:"I've maintained CRMs, tracked opportunities and generated leads, using HubSpot and Pipedrive."}},
+ intl:{es:"Perfil internacional",ca:"Perfil internacional",en:"International profile",p:{es:"he llevado cuentas internacionales con llamadas, visitas y videollamadas en inglés, y viví cinco meses en Oslo.",ca:"he portat comptes internacionals amb trucades, visites i videotrucades en anglès, i vaig viure cinc mesos a Oslo.",en:"I've handled international accounts through calls, visits and video meetings in English, walked major German trade fairs and lived in Oslo for five months."}},
+ digital:{es:"Marketing digital",ca:"Màrqueting digital",en:"Digital marketing",p:{es:"he llevado redes sociales, contenidos, personalización web y email marketing, y estudié marketing digital en Noruega.",ca:"he portat xarxes socials, continguts, personalització web i email màrqueting, i vaig estudiar màrqueting digital a Noruega.",en:"I've run social media, content, website customisation and email marketing, and studied digital marketing in Norway."}}
 };
+const TAG_ORDER = {es:["b2b","negocio","ferias","crm","intl","digital"],ca:["b2b","negocio","ferias","crm","intl","digital"],en:["intl","ferias","b2b","digital","crm","negocio"]};
 
 const JOBS = [
- {id:"int",g:1,co:"Interempresas Media",yr:"2025 – 2026",role:{es:"International Account Executive",en:"International Account Executive"},
-  ctx:{es:"Grupo de medios B2B industriales",en:"B2B industrial media group"},
+ {id:"int",g:1,co:"Interempresas Media",yr:"2025 – 2026",role:{es:"International Account Executive",ca:"International Account Executive",en:"International Account Executive"},
+  ctx:{es:"Grupo de medios B2B industriales",ca:"Grup de mitjans B2B industrials",en:"B2B industrial media group, Spain"},
   pts:{es:["Gestión de cuentas B2B nacionales e internacionales","Campañas publicitarias en medios impresos y digitales","Propuestas comerciales y seguimiento de clientes","Desarrollo comercial y presencia en ferias y eventos"],
-       en:["National and international B2B account management","Print and digital advertising campaigns","Commercial proposals and client follow-up","Business development and presence at trade fairs and events"]},
+       ca:["Gestió de comptes B2B nacionals i internacionals","Campanyes publicitàries en mitjans impresos i digitals","Propostes comercials i seguiment de clients","Desenvolupament comercial i presència a fires i esdeveniments"],
+       en:["International and national B2B account management, run in English and Spanish","Print and digital advertising campaigns","Commercial proposals and client follow-up","Presence at European trade fairs and industry events"]},
   tags:["b2b","intl","ferias","negocio"]},
- {id:"mer",g:1,co:"Merlin Digital Partner",yr:"2025",role:{es:"Marketing & Business Development",en:"Marketing & Business Development"},ctx:null,
+ {id:"mer",g:1,co:"Merlin Digital Partner",yr:"2025",role:{es:"Marketing & Business Development",ca:"Marketing & Business Development",en:"Marketing & Business Development"},ctx:null,
   pts:{es:["Gestión de redes sociales y contenidos","Diseño y personalización web","Generación y seguimiento de leads","Estrategias digitales, eventos y apoyo comercial"],
+       ca:["Gestió de xarxes socials i continguts","Disseny i personalització web","Generació i seguiment de leads","Estratègies digitals, esdeveniments i suport comercial"],
        en:["Social media and content management","Website design and customisation","Lead generation and follow-up","Digital strategy, events and sales support"]},
   tags:["digital","crm","negocio","ferias"]},
- {id:"itc",g:1,co:"IT Comunicación",yr:"2023",role:{es:"Sales & Strategy Executive",en:"Sales & Strategy Executive"},ctx:null,
-  pts:{es:["Captación y gestión de clientes","Estrategia comercial y venta consultiva","Email marketing"],en:["Client acquisition and management","Commercial strategy and consultative selling","Email marketing"]},
+ {id:"itc",g:1,co:"IT Comunicación",yr:"2023",role:{es:"Sales & Strategy Executive",ca:"Sales & Strategy Executive",en:"Sales & Strategy Executive"},ctx:null,
+  pts:{es:["Captación y gestión de clientes","Estrategia comercial y venta consultiva","Email marketing"],ca:["Captació i gestió de clients","Estratègia comercial i venda consultiva","Email màrqueting"],en:["Client acquisition and management","Commercial strategy and consultative selling","Email marketing"]},
   tags:["negocio","b2b","digital"]},
- {id:"sia",g:1,co:"SIARQ",yr:"2021",role:{es:"Sales & Strategy",en:"Sales & Strategy"},ctx:null,
-  pts:{es:["Desarrollo de negocio y fidelización","CRM y apoyo a la estrategia comercial","Email marketing"],en:["Business development and client retention","CRM and commercial strategy support","Email marketing"]},
+ {id:"sia",g:1,co:"SIARQ",yr:"2021",role:{es:"Sales & Strategy",ca:"Sales & Strategy",en:"Sales & Strategy"},ctx:null,
+  pts:{es:["Desarrollo de negocio y fidelización","CRM y apoyo a la estrategia comercial","Email marketing"],ca:["Desenvolupament de negoci i fidelització","CRM i suport a l'estratègia comercial","Email màrqueting"],en:["Business development and client retention","CRM and commercial strategy support","Email marketing"]},
   tags:["negocio","crm","digital"]},
- {id:"modo",g:1,co:"MODO",yr:"2020 – 2021",role:{es:"Commercial Operations & CRM Support",en:"Commercial Operations & CRM Support"},ctx:null,
+ {id:"modo",g:1,co:"MODO",yr:"2020 – 2021",role:{es:"Commercial Operations & CRM Support",ca:"Commercial Operations & CRM Support",en:"Commercial Operations & CRM Support"},ctx:null,
   pts:{es:["Actualización de CRM","Seguimiento de oportunidades","Apoyo a acciones comerciales, eventos y captación de clientes","Procesos internos de ventas"],
+       ca:["Actualització del CRM","Seguiment d'oportunitats","Suport a accions comercials, esdeveniments i captació de clients","Processos interns de vendes"],
        en:["CRM maintenance","Opportunity tracking","Support for sales actions, events and client acquisition","Internal sales processes"]},
   tags:["crm","negocio","ferias"]},
- {id:"udg",g:2,co:"EU Mediterrani · Universitat de Girona",yr:"2021 – 2025",role:{es:"Grado en Marketing",en:"Bachelor's Degree in Marketing"},ctx:null,
-  pts:{es:["Grado completo compaginado con trabajo en ventas y estrategia","Cuatro cursos de chino mandarín aprobados"],en:["Full degree combined with work in sales and strategy","Four Mandarin Chinese courses passed"]},
+ {id:"udg",g:2,co:"EU Mediterrani · Universitat de Girona",yr:"2021 – 2025",role:{es:"Grado en Marketing",ca:"Grau en Màrqueting",en:"Bachelor's Degree in Marketing"},ctx:null,
+  pts:{es:["Grado completo compaginado con trabajo en ventas y estrategia","Cuatro cursos de chino mandarín aprobados"],ca:["Grau complet compaginat amb feina en vendes i estratègia","Quatre cursos de xinès mandarí aprovats"],en:["Full degree combined with work in sales and strategy","Four Mandarin Chinese courses passed"]},
   tags:["b2b","digital","intl"]},
- {id:"kri",g:2,co:"University of Kristiania · Oslo",yr:"2024",role:{es:"Semestre Erasmus · Marketing digital",en:"Erasmus semester · Digital marketing"},ctx:null,
-  pts:{es:["Semestre de marketing digital en inglés","Cinco meses viviendo en Oslo"],en:["Digital marketing semester taught in English","Five months living in Oslo"]},
+ {id:"kri",g:2,co:"University of Kristiania · Oslo",yr:"2024",role:{es:"Semestre Erasmus · Marketing digital",ca:"Semestre Erasmus · Màrqueting digital",en:"Erasmus semester · Digital marketing"},ctx:null,
+  pts:{es:["Semestre de marketing digital en inglés","Cinco meses viviendo en Oslo"],ca:["Semestre de màrqueting digital en anglès","Cinc mesos vivint a Oslo"],en:["Digital marketing semester taught in English","Five months living and studying in Norway"]},
   tags:["intl","digital"]},
- {id:"mon",g:2,co:"Monlau · Barcelona",yr:"2019 – 2021",role:{es:"CFGS en Marketing y Publicidad",en:"Higher VET Diploma in Marketing & Advertising"},ctx:null,
-  pts:{es:["Dos años de marketing y publicidad aplicados, justo antes del grado"],en:["Two years of applied marketing and advertising, right before the degree"]},
+ {id:"mon",g:2,co:"Monlau · Barcelona",yr:"2019 – 2021",role:{es:"CFGS en Marketing y Publicidad",ca:"CFGS en Màrqueting i Publicitat",en:"Higher VET Diploma in Marketing & Advertising"},ctx:null,
+  pts:{es:["Dos años de marketing y publicidad aplicados, justo antes del grado"],ca:["Dos anys de màrqueting i publicitat aplicats, just abans del grau"],en:["Two years of applied marketing and advertising, right before the degree"]},
   tags:["digital","negocio"]}
 ];
 
 const LANGS = [
- {n:{es:"Español",en:"Spanish"},v:5,lv:{es:"Nativo",en:"Native"}},
- {n:{es:"Catalán",en:"Catalan"},v:5,lv:{es:"Nativo",en:"Native"}},
- {n:{es:"Inglés",en:"English"},v:4,lv:{es:"Profesional · título B2",en:"Professional · B2 certificate"},nt:{es:"Llamadas, visitas y videollamadas comerciales en inglés. Cinco meses en Oslo.",en:"Sales calls, visits and video meetings in English. Five months in Oslo."}},
- {n:{es:"Italiano",en:"Italian"},v:2,lv:{es:"Básico",en:"Basic"},nt:{es:"Lo entiendo muy bien y me defiendo hablando.",en:"Very good comprehension, basic speaking."}},
- {n:{es:"Chino mandarín",en:"Mandarin Chinese"},v:1,lv:{es:"Principiante",en:"Beginner"},nt:{es:"Cuatro cursos aprobados en la universidad.",en:"Four university courses passed."}}
+ {n:{es:"Español",ca:"Castellà",en:"Spanish"},v:5,lv:{es:"Nativo",ca:"Nadiu",en:"Native"}},
+ {n:{es:"Catalán",ca:"Català",en:"Catalan"},v:5,lv:{es:"Nativo",ca:"Nadiu",en:"Native"}},
+ {n:{es:"Inglés",ca:"Anglès",en:"English"},v:4,lv:{es:"Profesional · título B2",ca:"Professional · títol B2",en:"Professional working proficiency · B2 certificate"},nt:{es:"Llamadas, visitas y videollamadas comerciales en inglés. Cinco meses en Oslo.",ca:"Trucades, visites i videotrucades comercials en anglès. Cinc mesos a Oslo.",en:"My working language with international accounts: sales calls, client visits and long video meetings. Five months living in Oslo."}},
+ {n:{es:"Italiano",ca:"Italià",en:"Italian"},v:2,lv:{es:"Básico",ca:"Bàsic",en:"Basic"},nt:{es:"Lo entiendo muy bien y me defiendo hablando.",ca:"L'entenc molt bé i em defenso parlant.",en:"Very good comprehension, basic speaking."}},
+ {n:{es:"Chino mandarín",ca:"Xinès mandarí",en:"Mandarin Chinese"},v:1,lv:{es:"Principiante",ca:"Principiant",en:"Beginner"},nt:{es:"Cuatro cursos aprobados en la universidad.",ca:"Quatre cursos aprovats a la universitat.",en:"Four university courses passed."}}
 ];
+const LANG_ORDER = {es:[0,1,2,3,4],ca:[1,0,2,3,4],en:[2,0,1,3,4]};
 const SKILLS = {es:["Marketing B2B","Gestión de cuentas","Desarrollo de negocio","Planificación de campañas","Generación de leads","Venta consultiva","Procesos comerciales","Investigación de mercados","Marketing digital","Email marketing","Redes y contenidos","Ferias y eventos"],
- en:["B2B marketing","Account management","Business development","Campaign planning","Lead generation","Consultative selling","Sales processes","Market research","Digital marketing","Email marketing","Social & content","Trade fairs & events"]};
+ ca:["Màrqueting B2B","Gestió de comptes","Desenvolupament de negoci","Planificació de campanyes","Generació de leads","Venda consultiva","Processos comercials","Investigació de mercats","Màrqueting digital","Email màrqueting","Xarxes i continguts","Fires i esdeveniments"],
+ en:["International account management","B2B marketing","Trade fairs & events","Campaign planning","Market research","Digital marketing","Lead generation","Email marketing","Social & content","Business development","Consultative selling","Sales processes"]};
 const TOOLS = ["HubSpot","Pipedrive","CRM"];
 const SECTORS = [
- {n:{es:"Industria",en:"Industry"},d:{es:"Donde he trabajado con clientes B2B",en:"Where I've worked with B2B clients"}},
- {n:{es:"Agua y medio ambiente",en:"Water & environment"},d:{es:"Lo que más me atrapó en IFAT",en:"What hooked me most at IFAT"}},
- {n:{es:"Comunicación y medios",en:"Communication & media"},d:{es:"Donde he construido mi oficio",en:"Where I built my craft"}},
- {n:{es:"Software",en:"Software"},d:{es:"Herramientas que ayudan a vender",en:"Tools that help sell"}}
+ {n:{es:"Industria",ca:"Indústria",en:"Industry"},d:{es:"Donde he trabajado con clientes B2B",ca:"On he treballat amb clients B2B",en:"Where I've worked with B2B clients"}},
+ {n:{es:"Agua y medio ambiente",ca:"Aigua i medi ambient",en:"Water & environment"},d:{es:"Lo que más me atrapó en IFAT",ca:"El que més em va enganxar a IFAT",en:"What hooked me most at IFAT"}},
+ {n:{es:"Comunicación y medios",ca:"Comunicació i mitjans",en:"Communication & media"},d:{es:"Donde he construido mi oficio",ca:"On he construït el meu ofici",en:"Where I built my craft"}},
+ {n:{es:"Software",ca:"Software",en:"Software"},d:{es:"Herramientas que ayudan a vender",ca:"Eines que ajuden a vendre",en:"Tools that help sell"}}
 ];
 const PLACES = [
  {id:"bcn",city:"Barcelona",lat:41.39,lon:2.17,kind:"fair",ev:"Expoquimia",yr:"",lab:"r"},
  {id:"gir",city:"Girona",lat:41.98,lon:2.82,kind:"study",ev:"UdG",yr:"2021–25",lab:"l"},
  {id:"mad",city:"Madrid",lat:40.42,lon:-3.70,kind:"fair",ev:"SICUR",yr:"2026",lab:"b"},
- {id:"mun",city:{es:"Múnich",en:"Munich"},lat:48.14,lon:11.58,kind:"fair",ev:"IFAT",yr:"2026",lab:"r"},
- {id:"fra",city:{es:"Fráncfort",en:"Frankfurt"},lat:50.11,lon:8.68,kind:"fair",ev:"Ambiente",yr:"2026",lab:"r"},
+ {id:"mun",city:{es:"Múnich",ca:"Múnic",en:"Munich"},lat:48.14,lon:11.58,kind:"fair",ev:"IFAT",yr:"2026",lab:"r"},
+ {id:"fra",city:{es:"Fráncfort",ca:"Frankfurt",en:"Frankfurt"},lat:50.11,lon:8.68,kind:"fair",ev:"Ambiente",yr:"2026",lab:"r"},
  {id:"dus",city:"Düsseldorf",lat:51.23,lon:6.77,kind:"fair",ev:"A+A",yr:"2025",lab:"l"},
  {id:"osl",city:"Oslo",lat:59.91,lon:10.75,kind:"study",ev:"Erasmus",yr:"2024",lab:"r"}
 ];
@@ -599,15 +629,15 @@ function render(){
   const L = T[lang];
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i]").forEach(el => { const v = L[el.dataset.i]; if (typeof v === "string") el.textContent = v; });
-  $("#l-es").setAttribute("aria-pressed", lang === "es"); $("#l-en").setAttribute("aria-pressed", lang === "en");
+  ["es","ca","en"].forEach(k => $("#l-"+k).setAttribute("aria-pressed", lang === k));
   $("#map").setAttribute("aria-label", L.mapLabel);
   renderAd(false);
   $("#brief").innerHTML = L.brief.map(([a,b],i) => `<div><dt>${a}</dt><dd${i===5?' class="kpi"':""}>${b}</dd></div>`).join("");
   $("#stats").innerHTML = L.stats.map(([n,pre,t]) => `<div><strong data-n="${n}" data-pre="${pre}">${pre}${n}</strong><span>${t}</span></div>`).join("");
   const run = L.marq.map(m => `<span>${m}</span>`).join("");
   $("#marq").innerHTML = run + run;
-  $("#props").innerHTML = L.props.map(([h,p],i) => `<article class="prop"><span class="ico">${ICONS[i]}</span><span class="n">0${i+1} / 03</span><h3>${h}</h3><p>${p}</p></article>`).join("");
-  $("#langs").innerHTML = LANGS.map(l => `<div class="lrow"><span class="nm">${tx(l.n)}</span><span class="meter" aria-label="${l.v}/5">${[1,2,3,4,5].map(i=>`<i class="${i<=l.v?"f":""}"></i>`).join("")}</span><span class="lv">${tx(l.lv)}</span>${l.nt?`<span class="nt">${tx(l.nt)}</span>`:""}</div>`).join("");
+  $("#props").innerHTML = L.props.map(([h,p,ic],i) => `<article class="prop"><span class="ico">${ICONS[ic]}</span><span class="n">0${i+1} / 03</span><h3>${h}</h3><p>${p}</p></article>`).join("");
+  $("#langs").innerHTML = LANG_ORDER[lang].map(i => LANGS[i]).map(l => `<div class="lrow"><span class="nm">${tx(l.n)}</span><span class="meter" aria-label="${l.v}/5">${[1,2,3,4,5].map(i=>`<i class="${i<=l.v?"f":""}"></i>`).join("")}</span><span class="lv">${tx(l.lv)}</span>${l.nt?`<span class="nt">${tx(l.nt)}</span>`:""}</div>`).join("");
   $("#skills").innerHTML = TOOLS.map(t=>`<span class="tool">${t}</span>`).join("") + SKILLS[lang].map(s=>`<span>${s}</span>`).join("");
   $("#sectors").innerHTML = SECTORS.map(s=>`<div>${tx(s.n)}<small>${tx(s.d)}</small></div>`).join("");
   $("#qText").textContent = qualified ? L.q1 : L.q0;
@@ -621,7 +651,7 @@ function renderAd(){
   const v = T[lang][variant], h = $("#adH");
   clearInterval(rotTimer); rotI = 0;
   const n = v.h.split(" ").length;
-  h.innerHTML = words(v.h, 0) + (v.rot ? ` <span class="w rot"><span style="--d:${n*0.07}s">${v.rot[0]}</span></span>` : "");
+  h.innerHTML = words(v.h, 0) + (v.rot ? ` <span class="w rot${v.rot[0].length > 12 ? " long" : ""}"><span style="--d:${n*0.07}s">${v.rot[0]}</span></span>` : "");
   h.setAttribute("aria-label", v.rot ? v.h + " " + v.rot.join(" / ") : v.h);
   const s = $("#adS"); s.textContent = v.s; s.style.animation = "none"; void s.offsetWidth; s.style.animation = "";
   $("#adLabel").textContent = T[lang].ad + variant;
@@ -630,7 +660,7 @@ function renderAd(){
     rotTimer = setInterval(() => {
       const r = h.querySelector(".rot"); if (!r) return;
       r.classList.add("out");
-      setTimeout(() => { rotI = (rotI + 1) % v.rot.length; r.classList.remove("out"); r.innerHTML = `<span>${v.rot[rotI]}</span>`; }, 320);
+      setTimeout(() => { rotI = (rotI + 1) % v.rot.length; r.classList.remove("out"); r.classList.toggle("long", v.rot[rotI].length > 12); r.innerHTML = `<span>${v.rot[rotI]}</span>`; }, 320);
     }, 2300);
   }
 }
@@ -701,7 +731,7 @@ function score(j){ let n = 0; picks.forEach(k => { if (j.tags.includes(k)) n++; 
 function renderSeg(){
   const L = T[lang], box = $("#chips");
   box.querySelectorAll(".chip,.clear").forEach(n => n.remove());
-  Object.entries(TAGS).forEach(([k,t]) => {
+  TAG_ORDER[lang].map(k => [k, TAGS[k]]).forEach(([k,t]) => {
     const b = document.createElement("button");
     b.type = "button"; b.className = "chip"; b.id = "chip-" + k; b.textContent = t[lang];
     b.setAttribute("aria-pressed", picks.has(k));
@@ -789,8 +819,13 @@ addEventListener("scroll", track, {passive:true});
 addEventListener("resize", track);
 
 ["A","B","C"].forEach(k => $("#v"+k).onclick = () => { if (variant !== k){ variant = k; renderAd(); } });
-$("#l-es").onclick = () => { lang = "es"; render(); };
-$("#l-en").onclick = () => { lang = "en"; render(); };
+function setLang(l){
+  lang = l;
+  // English version targets Europe: lead with the international profile
+  if (l === "en" && !picks.size){ picks.add("intl"); open = new Set(["int"]); }
+  render();
+}
+["es","ca","en"].forEach(k => $("#l-"+k).onclick = () => setLang(k));
 $("#qualify").onclick = () => {
   qualified = !qualified;
   $("#qualify").setAttribute("aria-pressed", qualified);
@@ -806,8 +841,9 @@ $("#copy").onclick = () => {
 };
 bindAnchors(document);
 
-if (location.hash === "#en") lang = "en";
-render(); track(); countUp(); initReveal();
+const H = location.hash.replace("#","");
+if (H === "en" || H === "ca") setLang(H); else render();
+ track(); countUp(); initReveal();
 </script>
 
 </body>
