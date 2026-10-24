@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Marc Sanchez Vallespi · Marketing, ventas y comunicación. CV interactivo.">
+<meta property="og:title" content="Marc Sanchez Vallespi">
+<meta property="og:description" content="Marketing, ventas y comunicación. No es un CV: es una campaña.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Marc Sanchez Vallespi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: the CV is a marketing campaign for one product (Marc). A sticky funnel rail
+   tracks the visitor from Awareness to Conversion; the hero is the ad creative with a live A/B test,
+   next to the campaign brief. */
+:root{
+  --paper:#F3F5FB; --surface:#FFFFFF; --ink:#0B1530; --muted:#56617C; --line:#D3D9E8;
+  --blue:#2443E6; --blue-2:#6F8BFF; --blue-soft:#E6EBFD; --on-blue:#FFFFFF; --ok:#0E9F6E; --ad:#1A31C2; --ad-glow:#3F5CF0;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#080F22; --surface:#0F1931; --ink:#E6EBF7; --muted:#97A3BF; --line:#22304F;
+  --blue:#5B7BFF; --blue-2:#9DB2FF; --blue-soft:#15234A; --on-blue:#FFFFFF; --ok:#34D399; --ad:#16288F; --ad-glow:#2B44C9; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#080F22; --surface:#0F1931; --ink:#E6EBF7; --muted:#97A3BF; --line:#22304F;
+  --blue:#5B7BFF; --blue-2:#9DB2FF; --blue-soft:#15234A; --on-blue:#FFFFFF; --ok:#34D399; --ad:#16288F; --ad-glow:#2B44C9; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0;font-family:var(--f-display);letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+
+/* Top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand i{width:26px;height:26px;border-radius:50%;background:conic-gradient(var(--blue) 0 70%,var(--blue-2) 70% 100%);display:block}
+.utm{color:var(--muted);font-size:11px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:2px}
+.lang button{border:0;background:none;padding:4px 11px;border-radius:999px;font-family:var(--f-mono);font-size:12px;cursor:pointer;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.mprog{display:none;height:3px;background:var(--line)}
+.mprog i{display:block;height:100%;width:20%;background:var(--blue);transition:width .4s}
+@media (max-width:980px){.utm{display:none}.mprog{display:block}}
+
+/* Shell with funnel rail */
+.shell{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);align-self:start;padding-top:40px}
+.rail .mono{color:var(--muted);margin-bottom:14px;display:block}
+.funnel{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.funnel a{display:block;text-decoration:none;position:relative;height:46px;border-radius:6px;overflow:hidden;background:var(--blue-soft);color:var(--muted);transition:color .3s}
+.funnel li:nth-child(1) a{width:100%}.funnel li:nth-child(2) a{width:90%}.funnel li:nth-child(3) a{width:80%}.funnel li:nth-child(4) a{width:70%}.funnel li:nth-child(5) a{width:60%}
+.funnel a::before{content:"";position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.3,.7,.2,1)}
+.funnel a.done::before,.funnel a.now::before{transform:scaleX(1)}
+.funnel a.done,.funnel a.now{color:var(--on-blue)}
+.funnel a span{position:relative;display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 12px;line-height:1.15}
+.funnel a b{font-family:var(--f-mono);font-size:10px;font-weight:400;letter-spacing:.06em;opacity:.8}
+.funnel a em{font-style:normal;font-weight:600;font-size:14px}
+.rail .rate{margin-top:16px;font-size:13px;color:var(--muted)}
+.rail .rate strong{display:block;font-family:var(--f-display);font-size:34px;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+@media (max-width:980px){.shell{grid-template-columns:minmax(0,1fr);gap:0}.rail{display:none}}
+
+/* Stage headers */
+section{padding-block:64px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.stage{display:flex;align-items:center;gap:10px;color:var(--blue);margin-bottom:14px}
+.stage::before{content:attr(data-n);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue);font-size:11px}
+.h2{font-size:clamp(34px,4.6vw,58px);font-weight:800;line-height:.98;max-width:18ch}
+.intro{color:var(--muted);max-width:58ch;margin-top:14px;font-size:17px}
+
+/* Hero: ad + brief */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;margin-top:22px}
+.ad{position:relative;background:var(--ad);color:#FFFFFF;border-radius:22px;padding:28px;min-height:440px;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.ad::after{content:"";position:absolute;width:420px;height:420px;right:-180px;top:-200px;border-radius:50%;
+  background:radial-gradient(circle,var(--ad-glow),transparent 65%);z-index:-1}
+.ad-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.ad-top .mono{opacity:.85}
+.ab{display:flex;gap:4px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.ab button{border:0;background:none;color:#FFFFFF;font-family:var(--f-mono);font-size:12px;padding:5px 12px;border-radius:999px;cursor:pointer}
+.ab button[aria-pressed="true"]{background:#FFFFFF;color:#1B2B8C}
+.ad::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,75%) var(--my,25%),rgba(255,255,255,.16),transparent 60%);transition:opacity .3s}
+.ad h1{font-size:clamp(40px,5.6vw,76px);font-weight:800;line-height:.98;margin-top:auto;padding-top:40px;max-width:14ch}
+.ad h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.ad h1 .w > span{display:inline-block;animation:rise .75s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{transform:translateY(108%)}}
+.ad h1 .rot{color:#B4C4FF}
+.ad h1 .rot.out > span{animation:drop .32s ease-in both}
+@keyframes drop{to{transform:translateY(-108%)}}
+.ad .sub{animation:fadeUp .8s .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes fadeUp{from{transform:translateY(14px);opacity:.2}}
+.ab-hint{font-size:11px;opacity:.8}
+
+/* Stats strip */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:20px;border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+.stats div{padding:18px 20px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0}
+.stats strong{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(36px,4vw,52px);line-height:1;color:var(--blue);font-variant-numeric:tabular-nums}
+.stats span{color:var(--muted);font-size:14px}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats div:nth-child(3){border-left:0}.stats div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* Marquee */
+.marquee{margin-top:36px;overflow:hidden;border-block:1px solid var(--line);padding-block:14px;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee .track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee span{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3vw,38px);white-space:nowrap;padding-right:28px;display:flex;align-items:center;gap:28px}
+.marquee span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--blue)}
+.marquee span:nth-child(even){color:transparent;-webkit-text-stroke:1.2px var(--ink)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Scroll reveal: transform only, so everything is readable at rest */
+.rv{transform:translateY(34px);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{transform:none}
+.leg-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{from{transform:scale(.6);opacity:.9}to{transform:scale(2.2);opacity:0}}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:20}
+.ad .sub{font-size:19px;font-weight:500;line-height:1.5;max-width:40ch;margin-top:18px;color:#FFFFFF}
+.ad .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:1.5px solid currentColor;background:none;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.light{background:#FFFFFF;color:#1B2B8C;border-color:#FFFFFF}
+.btn.solid{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.sponsored{position:absolute;top:28px;right:28px}
+.brief{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:4px}
+.brief h2{font-size:22px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.brief h2 .mono{color:var(--muted);font-family:var(--f-mono);letter-spacing:.05em}
+.brief dl{margin:0;display:grid}
+.brief div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.brief dt{color:var(--muted)}
+.brief dd{margin:0;font-weight:600}
+.brief dd.kpi{color:var(--blue)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.facts span{background:var(--surface);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:14px}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.ad{min-height:400px}}
+
+/* Value props */
+.props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.prop{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.prop:hover{border-color:var(--blue);box-shadow:0 24px 40px -28px var(--blue)}
+.prop .n{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.prop .ico{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);display:grid;place-items:center}
+.prop .ico svg{width:24px;height:24px}
+.prop h3{font-size:22px;font-weight:700;line-height:1.1}
+.prop p{color:var(--muted)}
+@media (max-width:820px){.props{grid-template-columns:minmax(0,1fr)}}
+.reach{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:center;margin-top:40px}
+.reach h3{font-size:26px;font-weight:700}
+.mapbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px}
+.mapbox svg{width:100%;height:auto;display:block}
+.legs{list-style:none;margin:14px 0 0;padding:0;display:grid}
+.legs li{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.legs li:first-child{border-top:1px solid var(--line)}
+.legs .ev{font-family:var(--f-display);font-weight:700;font-size:22px}
+.legs .city{color:var(--muted);font-size:14px}
+.legs .k{color:var(--muted)}
+.legs li.on .ev{color:var(--blue)}
+@keyframes march{to{stroke-dashoffset:-24}}
+.leg{stroke:var(--blue);stroke-width:2;stroke-dasharray:4 8;fill:none;animation:march 1.6s linear infinite;opacity:.5;transition:opacity .2s}
+.leg.on{opacity:1;stroke-width:3}
+@media (max-width:820px){.reach{grid-template-columns:minmax(0,1fr)}}
+
+/* Segmentation + history */
+.seg{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:28px;display:grid;gap:14px}
+.seg-q{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg-q .mono{color:var(--muted);margin-right:4px}
+.chip{border:1.5px solid var(--line);background:none;padding:7px 14px;border-radius:999px;font-size:14px;cursor:pointer;font-weight:500}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.clear{border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:13px}
+.pitch{font-size:17px;max-width:75ch;min-height:2.6em}
+.pitch b{color:var(--blue)}
+.tl{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
+.tl-group{margin-top:22px;color:var(--muted)}
+.camp{background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:opacity .25s,border-color .2s}
+.camp.dim{opacity:.38}
+.camp.hit{border-color:var(--blue)}
+.camp > button{width:100%;border:0;background:none;text-align:left;cursor:pointer;padding:18px 20px;display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:16px;align-items:center}
+.camp .when{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.camp .when b{display:block;font-weight:500;color:var(--ink);font-size:14px}
+.camp .what h3{font-size:22px;font-weight:700;line-height:1.1}
+.camp .what p{color:var(--muted);font-size:15px}
+.camp .chev{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s}
+.camp[data-open="true"] .chev{transform:rotate(45deg);background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.rel{display:inline-block;margin-left:8px;vertical-align:middle;background:var(--blue-soft);color:var(--blue);font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:999px}
+.body{padding:0 20px 20px calc(20px + 130px + 16px);display:grid;gap:12px}
+.body ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.body li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px}
+.body li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);margin-top:9px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--f-mono);font-size:11px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+@media (max-width:640px){
+  .camp > button{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .camp .when{grid-column:1/-1}
+  .body{padding:0 20px 20px}
+}
+
+/* Specs */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{font-size:24px;font-weight:700;margin-bottom:16px}
+.langs{display:grid;gap:16px}
+.lrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 14px;align-items:center}
+.lrow .nm{font-weight:600}
+.meter{display:flex;gap:4px}
+.meter i{width:22px;height:8px;border-radius:8px;background:var(--line)}
+.meter i.f{background:var(--blue)}
+.lrow .lv{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;grid-column:1/-1}
+.lrow .nt{grid-column:1/-1;font-size:14px;color:var(--muted)}
+.skills{display:flex;flex-wrap:wrap;gap:8px}
+.skills span{border:1.5px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px}
+.skills span.tool{border-color:var(--blue);color:var(--blue);font-weight:600}
+.sub{margin:22px 0 10px;color:var(--muted)}
+.sectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.sectors div{border:1px dashed var(--line);padding:12px;border-radius:12px;font-weight:600}
+.sectors small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+@media (max-width:820px){.two{grid-template-columns:minmax(0,1fr)}}
+
+/* Conversion */
+.convert{margin-top:28px;background:var(--blue);color:var(--on-blue);border-radius:24px;padding:36px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:end;position:relative;overflow:hidden;isolation:isolate}
+.convert::after{content:"";position:absolute;width:520px;height:520px;left:-200px;top:-260px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--blue-2) 65%,transparent),transparent 65%);z-index:-1}
+.convert h2{font-size:clamp(44px,6.5vw,88px);font-weight:800;line-height:.92}
+.convert p{font-size:18px;margin-top:16px;max-width:42ch;opacity:.92}
+.ticket{background:var(--surface);color:var(--ink);border-radius:16px;padding:20px;display:grid;gap:12px}
+.ticket .url{font-family:var(--f-mono);font-size:13px;word-break:break-all;user-select:all;background:var(--paper);border:1px solid var(--line);padding:10px 12px;border-radius:10px}
+.ticket .row{display:flex;gap:8px;flex-wrap:wrap}
+.ticket .row > *{flex:1}
+.ticket .ok{color:var(--muted);font-size:13px;min-height:1.2em}
+.qualify{border:1.5px dashed var(--line);background:none;border-radius:12px;padding:12px;cursor:pointer;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px}
+.qualify .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:11px;transition:all .3s}
+.qualify[aria-pressed="true"]{border-style:solid;border-color:var(--ok);color:var(--ok)}
+.qualify[aria-pressed="true"] .dot{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+@media (max-width:820px){.convert{grid-template-columns:minmax(0,1fr);padding:24px}}
+footer .wrap{padding-block:26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand"><i aria-hidden="true"></i><span>Marc Sanchez Vallespi</span></div>
+    <span class="utm mono">?utm_source=cv&amp;utm_campaign=marc_2026</span>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button id="l-es" type="button" aria-pressed="true">ES</button>
+      <button id="l-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <div class="mprog" aria-hidden="true"><i id="mbar"></i></div>
+</header>
+
+<div class="wrap shell">
+  <aside class="rail" aria-label="Embudo">
+    <span class="mono" data-i="railT">Tu recorrido</span>
+    <ol class="funnel" id="funnel"></ol>
+    <p class="rate"><strong id="rate">20%</strong><span data-i="rateT">del embudo recorrido</span></p>
+  </aside>
+
+  <main>
+    <section id="awareness" data-stage="0" style="border-top:0">
+      <p class="stage mono" data-n="01" data-i="s1">Awareness · Descubrimiento</p>
+      <div class="hero">
+        <div class="ad">
+          <div class="ad-top">
+            <span class="mono" id="adLabel">Anuncio · Variante A</span>
+            <div class="ab" role="group" aria-label="Test A/B/C">
+              <button type="button" id="vA" aria-pressed="true">A</button>
+              <button type="button" id="vB" aria-pressed="false">B</button>
+              <button type="button" id="vC" aria-pressed="false">C</button>
+            </div>
+          </div>
+          <h1 id="adH">Tu próximo fichaje en marketing.</h1>
+          <p class="sub" id="adS"></p>
+          <div class="ctas">
+            <a class="btn light" href="#interes" data-i="adCta">Ver la campaña ↓</a>
+            <a class="btn" href="https://www.linkedin.com/in/marc-sanchez-vallespi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="brief">
+          <h2><span data-i="briefT">Brief de campaña</span><span class="mono">2026</span></h2>
+          <dl id="brief"></dl>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="marquee" aria-hidden="true"><div class="track" id="marq"></div></div>
+    </section>
+
+    <section id="interes" data-stage="1">
+      <p class="stage mono" data-n="02" data-i="s2">Interés · Propuesta de valor</p>
+      <h2 class="h2" data-i="s2T">Por qué este perfil y no otro</h2>
+      <div class="props" id="props"></div>
+      <div class="reach">
+        <div class="mapbox"><svg id="map" viewBox="0 0 560 600" role="img" aria-label="Mapa de ferias y ciudades"></svg></div>
+        <div>
+          <h3 data-i="reachT">Alcance: ferias y ciudades</h3>
+          <p class="intro" data-i="reachP">Grandes ferias europeas recorridas desde Barcelona, y las ciudades donde he estudiado.</p>
+          <ul class="legs" id="legs"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="consideracion" data-stage="2">
+      <p class="stage mono" data-n="03" data-i="s3">Consideración · Historial</p>
+      <h2 class="h2" data-i="s3T">Campañas anteriores</h2>
+      <p class="intro" data-i="s3P">Cada etapa, con sus fechas de emisión. Dime qué perfil buscas y te marco lo que encaja.</p>
+      <div class="seg">
+        <div class="seg-q" id="chips"><span class="mono" data-i="segQ">Segmenta: ¿qué buscas?</span></div>
+        <p class="pitch" id="pitch" aria-live="polite"></p>
+      </div>
+      <p class="tl-group mono" data-i="g1">Experiencia</p>
+      <ol class="tl" id="tl1"></ol>
+      <p class="tl-group mono" data-i="g2">Formación</p>
+      <ol class="tl" id="tl2"></ol>
+    </section>
+
+    <section id="evaluacion" data-stage="3">
+      <p class="stage mono" data-n="04" data-i="s4">Evaluación · Especificaciones</p>
+      <h2 class="h2" data-i="s4T">Ficha técnica del producto</h2>
+      <p class="intro" data-i="s4P">Niveles contados tal cual son: lo que uso a diario, lo que tengo acreditado y lo que sigo aprendiendo.</p>
+      <div class="two">
+        <div class="card"><h3 data-i="langsT">Idiomas</h3><div class="langs" id="langs"></div></div>
+        <div class="card">
+          <h3 data-i="skillsT">Competencias</h3>
+          <div class="skills" id="skills"></div>
+          <p class="sub mono" data-i="sectorsT">Sectores que sigo de cerca</p>
+          <div class="sectors" id="sectors"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conversion" data-stage="4">
+      <p class="stage mono" data-n="05" data-i="s5">Conversión</p>
+      <div class="convert">
+        <div>
+          <h2 data-i="cTitle">¿Hablamos?</h2>
+          <p data-i="cText">Base en Barcelona, abierto a Cataluña y a Europa. Híbrido o presencial. El siguiente paso es un mensaje por LinkedIn.</p>
+        </div>
+        <div class="ticket">
+          <span class="mono" data-i="cLabel">Perfil de LinkedIn</span>
+          <div class="url" id="url">linkedin.com/in/marc-sanchez-vallespi</div>
+          <div class="row">
+            <a class="btn solid" href="https://www.linkedin.com/in/marc-sanchez-vallespi/" target="_blank" rel="noopener" data-i="cOpen">Abrir LinkedIn ↗</a>
+            <button class="btn" type="button" id="copy" data-i="cCopy">Copiar enlace</button>
+          </div>
+          <button class="qualify" type="button" id="qualify" aria-pressed="false"><span class="dot" aria-hidden="true">✓</span><span id="qText">Marcarme como lead cualificado</span></button>
+          <span class="ok" id="ok" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<footer><div class="wrap mono"><span>Marc Sanchez Vallespi · Barcelona</span><span data-i="foot">Campaña activa · octubre 2026</span></div></footer>
+
+<script>
+const T = {
+ es:{railT:"Tu recorrido",rateT:"del embudo recorrido",
+  stages:["Awareness","Interés","Consideración","Evaluación","Conversión"],
+  s1:"Awareness · Descubrimiento",s2:"Interés · Propuesta de valor",s3:"Consideración · Historial",s4:"Evaluación · Especificaciones",s5:"Conversión",
+  ad:"Anuncio · Variante ",
+  A:{h:"Tu próximo fichaje en",rot:["marketing.","ventas.","comunicación.","cuentas.","eventos."],s:"Más de cinco años creando campañas, abriendo clientes y cuidando el CRM. Grado en Marketing, inglés profesional y base en Barcelona."},
+  B:{h:"Campañas que acaban en clientes.",s:"Me muevo entre marketing, comunicación y ventas. Diseño la acción, hablo con el cliente y hago el seguimiento hasta el final."},
+  C:{h:"No es un CV. Es una campaña.",s:"Y como toda campaña, se mide por resultados. El KPI de esta es sencillo: una primera conversación contigo."},
+  abHint:"Elige tu titular favorito",
+  stats:[[5,"+","años de experiencia"],[5,"","empresas"],[5,"","idiomas"],[5,"","ferias europeas"]],
+  marq:["Marketing","Ventas","Comunicación","Gestión de cuentas","Eventos","Marketing digital","CRM","Desarrollo de negocio"],
+  adCta:"Ver la campaña ↓",briefT:"Brief de campaña",
+  brief:[["Producto","Marc Sanchez Vallespi"],["Encaja en","Marketing · Comunicación · Ventas · Gestión de cuentas · Eventos · Marketing digital"],["Público","Empresas de cualquier sector, en B2B o B2C"],["Mercado","Barcelona y Cataluña · abierto a Europa"],["Formato","Híbrido o presencial"],["KPI","Una primera conversación"]],
+  facts:["5 empresas desde 2020","Grado en Marketing (UdG)","Erasmus en Oslo","Inglés profesional"],
+  s2T:"Tres razones para no pasar de largo",
+  props:[["Vendo lo que comunico","No me quedo en la pieza creativa. He llevado cuentas, preparado propuestas y seguido a cada cliente hasta el final."],
+         ["Del dato al apretón de manos","Leads y oportunidades en el CRM, campañas en impreso y digital, y trabajo de campo en ferias como IFAT, SICUR o A+A."],
+         ["Inglés de reunión, no de examen","Cuentas internacionales, llamadas y videollamadas comerciales en inglés, y cinco meses viviendo en Oslo."]],
+  reachT:"De Barcelona a media Europa",reachP:"Las grandes ferias que he recorrido y las ciudades donde he estudiado. Pasa el cursor por la lista para ver cada ruta.",
+  s3T:"Lo que ya está probado en el mercado",s3P:"Cada etapa con sus fechas de emisión. Dime qué perfil buscas y te marco lo que encaja.",
+  segQ:"Segmenta: ¿qué buscas?",g1:"Experiencia",g2:"Formación",rel:"Relevante para ti",
+  clear:"Quitar segmentación",pitch0:"Elige uno o varios segmentos y te marco las etapas que encajan, con un resumen a medida.",
+  pitchLead:"Si buscas ",and:" y ",air:"Emisión",
+  s4T:"Lo que viene de serie",s4P:"Niveles contados tal cual son: lo que uso a diario, lo que tengo acreditado y lo que sigo aprendiendo.",
+  langsT:"Idiomas",skillsT:"Competencias",sectorsT:"Sectores que sigo de cerca",
+  cTitle:"Tu turno: convierte.",cText:"Base en Barcelona, abierto a Cataluña y a Europa. Híbrido o presencial. El siguiente paso es un mensaje por LinkedIn.",
+  cLabel:"Perfil de LinkedIn",cOpen:"Abrir LinkedIn ↗",cCopy:"Copiar enlace",copied:"Enlace copiado.",copyFail:"Selecciona el enlace y cópialo a mano.",
+  q0:"Marcarme como lead cualificado",q1:"Lead cualificado",qMsg:"Embudo completado. Te espero en LinkedIn.",
+  foot:"Campaña activa · octubre 2026",fair:"Feria",study:"Estudios",home:"base",mapLabel:"Mapa de ferias y ciudades"},
+ en:{railT:"Your journey",rateT:"of the funnel completed",
+  stages:["Awareness","Interest","Consideration","Evaluation","Conversion"],
+  s1:"Awareness · Discovery",s2:"Interest · Value proposition",s3:"Consideration · Track record",s4:"Evaluation · Specs",s5:"Conversion",
+  ad:"Ad · Variant ",
+  A:{h:"Your next hire in",rot:["marketing.","sales.","communication.","accounts.","events."],s:"Over five years building campaigns, opening clients and looking after the CRM. Marketing degree, professional English, based in Barcelona."},
+  B:{h:"Campaigns that end in clients.",s:"I move between marketing, communication and sales. I plan the action, talk to the client and follow up to the end."},
+  C:{h:"Not a CV. A campaign.",s:"And like every campaign, it's measured by results. This one's KPI is simple: a first conversation with you."},
+  abHint:"Pick your favourite headline",
+  stats:[[5,"+","years of experience"],[5,"","companies"],[5,"","languages"],[5,"","European trade fairs"]],
+  marq:["Marketing","Sales","Communication","Account management","Events","Digital marketing","CRM","Business development"],
+  adCta:"See the campaign ↓",briefT:"Campaign brief",
+  brief:[["Product","Marc Sanchez Vallespi"],["Fits in","Marketing · Communication · Sales · Account management · Events · Digital marketing"],["Audience","Companies in any sector, B2B or B2C"],["Market","Barcelona & Catalonia · open to Europe"],["Format","Hybrid or on-site"],["KPI","A first conversation"]],
+  facts:["5 companies since 2020","Marketing degree (UdG)","Erasmus in Oslo","Professional English"],
+  s2T:"Three reasons not to scroll past",
+  props:[["I sell what I communicate","I don't stop at the creative. I've managed accounts, prepared proposals and followed every client through to the end."],
+         ["From data to handshake","Leads and opportunities in the CRM, print and digital campaigns, and field work at fairs like IFAT, SICUR or A+A."],
+         ["Meeting-room English","International accounts, sales calls and video meetings in English, and five months living in Oslo."]],
+  reachT:"From Barcelona across Europe",reachP:"The major trade fairs I've walked and the cities where I studied. Hover the list to see each route.",
+  s3T:"Already tested in the market",s3P:"Each stage with its flight dates. Tell me what profile you need and I'll highlight what fits.",
+  segQ:"Segment: what do you need?",g1:"Experience",g2:"Education",rel:"Relevant to you",
+  clear:"Clear segments",pitch0:"Pick one or more segments and I'll highlight the stages that fit, with a tailored summary.",
+  pitchLead:"If you need ",and:" and ",air:"Flight",
+  s4T:"Included as standard",s4P:"Levels stated as they are: what I use daily, what I have certified and what I'm still learning.",
+  langsT:"Languages",skillsT:"Skills",sectorsT:"Sectors I follow closely",
+  cTitle:"Your move: convert.",cText:"Based in Barcelona, open to Catalonia and Europe. Hybrid or on-site. The next step is a message on LinkedIn.",
+  cLabel:"LinkedIn profile",cOpen:"Open LinkedIn ↗",cCopy:"Copy link",copied:"Link copied.",copyFail:"Select the link and copy it manually.",
+  q0:"Mark me as a qualified lead",q1:"Qualified lead",qMsg:"Funnel complete. See you on LinkedIn.",
+  foot:"Campaign live · October 2026",fair:"Fair",study:"Study",home:"home base",mapLabel:"Map of trade fairs and cities"}
+};
+
+const TAGS = {
+ b2b:{es:"Marketing B2B",en:"B2B marketing",p:{es:"he trabajado con cuentas B2B de sectores industriales, en campañas impresas y digitales.",en:"I've worked with B2B accounts in industrial sectors, across print and digital campaigns."}},
+ negocio:{es:"Desarrollo de negocio",en:"Business development",p:{es:"desde 2020 he hecho captación, venta consultiva, propuestas comerciales y fidelización en cinco empresas.",en:"since 2020 I've done prospecting, consultative selling, commercial proposals and client retention across five companies."}},
+ ferias:{es:"Ferias y eventos",en:"Trade fairs & events",p:{es:"he recorrido IFAT, SICUR, Ambiente, Expoquimia y A+A, y he apoyado eventos comerciales desde mis primeras prácticas.",en:"I've walked IFAT, SICUR, Ambiente, Expoquimia and A+A, and supported commercial events since my first placement."}},
+ crm:{es:"CRM y leads",en:"CRM & leads",p:{es:"he mantenido CRM, seguido oportunidades y generado leads, con HubSpot y Pipedrive.",en:"I've maintained CRMs, tracked opportunities and generated leads, using HubSpot and Pipedrive."}},
+ intl:{es:"Perfil internacional",en:"International profile",p:{es:"he llevado cuentas internacionales con llamadas, visitas y videollamadas en inglés, y viví cinco meses en Oslo.",en:"I've handled international accounts through calls, visits and video meetings in English, and lived in Oslo for five months."}},
+ digital:{es:"Marketing digital",en:"Digital marketing",p:{es:"he llevado redes sociales, contenidos, personalización web y email marketing, y estudié marketing digital en Noruega.",en:"I've run social media, content, website customisation and email marketing, and studied digital marketing in Norway."}}
+};
+
+const JOBS = [
+ {id:"int",g:1,co:"Interempresas Media",yr:"2025 – 2026",role:{es:"International Account Executive",en:"International Account Executive"},
+  ctx:{es:"Grupo de medios B2B industriales",en:"B2B industrial media group"},
+  pts:{es:["Gestión de cuentas B2B nacionales e internacionales","Campañas publicitarias en medios impresos y digitales","Propuestas comerciales y seguimiento de clientes","Desarrollo comercial y presencia en ferias y eventos"],
+       en:["National and international B2B account management","Print and digital advertising campaigns","Commercial proposals and client follow-up","Business development and presence at trade fairs and events"]},
+  tags:["b2b","intl","ferias","negocio"]},
+ {id:"mer",g:1,co:"Merlin Digital Partner",yr:"2025",role:{es:"Marketing & Business Development",en:"Marketing & Business Development"},ctx:null,
+  pts:{es:["Gestión de redes sociales y contenidos","Diseño y personalización web","Generación y seguimiento de leads","Estrategias digitales, eventos y apoyo comercial"],
+       en:["Social media and content management","Website design and customisation","Lead generation and follow-up","Digital strategy, events and sales support"]},
+  tags:["digital","crm","negocio","ferias"]},
+ {id:"itc",g:1,co:"IT Comunicación",yr:"2023",role:{es:"Sales & Strategy Executive",en:"Sales & Strategy Executive"},ctx:null,
+  pts:{es:["Captación y gestión de clientes","Estrategia comercial y venta consultiva","Email marketing"],en:["Client acquisition and management","Commercial strategy and consultative selling","Email marketing"]},
+  tags:["negocio","b2b","digital"]},
+ {id:"sia",g:1,co:"SIARQ",yr:"2021",role:{es:"Sales & Strategy",en:"Sales & Strategy"},ctx:null,
+  pts:{es:["Desarrollo de negocio y fidelización","CRM y apoyo a la estrategia comercial","Email marketing"],en:["Business development and client retention","CRM and commercial strategy support","Email marketing"]},
+  tags:["negocio","crm","digital"]},
+ {id:"modo",g:1,co:"MODO",yr:"2020 – 2021",role:{es:"Commercial Operations & CRM Support",en:"Commercial Operations & CRM Support"},ctx:null,
+  pts:{es:["Actualización de CRM","Seguimiento de oportunidades","Apoyo a acciones comerciales, eventos y captación de clientes","Procesos internos de ventas"],
+       en:["CRM maintenance","Opportunity tracking","Support for sales actions, events and client acquisition","Internal sales processes"]},
+  tags:["crm","negocio","ferias"]},
+ {id:"udg",g:2,co:"EU Mediterrani · Universitat de Girona",yr:"2021 – 2025",role:{es:"Grado en Marketing",en:"Bachelor's Degree in Marketing"},ctx:null,
+  pts:{es:["Grado completo compaginado con trabajo en ventas y estrategia","Cuatro cursos de chino mandarín aprobados"],en:["Full degree combined with work in sales and strategy","Four Mandarin Chinese courses passed"]},
+  tags:["b2b","digital","intl"]},
+ {id:"kri",g:2,co:"University of Kristiania · Oslo",yr:"2024",role:{es:"Semestre Erasmus · Marketing digital",en:"Erasmus semester · Digital marketing"},ctx:null,
+  pts:{es:["Semestre de marketing digital en inglés","Cinco meses viviendo en Oslo"],en:["Digital marketing semester taught in English","Five months living in Oslo"]},
+  tags:["intl","digital"]},
+ {id:"mon",g:2,co:"Monlau · Barcelona",yr:"2019 – 2021",role:{es:"CFGS en Marketing y Publicidad",en:"Higher VET Diploma in Marketing & Advertising"},ctx:null,
+  pts:{es:["Dos años de marketing y publicidad aplicados, justo antes del grado"],en:["Two years of applied marketing and advertising, right before the degree"]},
+  tags:["digital","negocio"]}
+];
+
+const LANGS = [
+ {n:{es:"Español",en:"Spanish"},v:5,lv:{es:"Nativo",en:"Native"}},
+ {n:{es:"Catalán",en:"Catalan"},v:5,lv:{es:"Nativo",en:"Native"}},
+ {n:{es:"Inglés",en:"English"},v:4,lv:{es:"Profesional · título B2",en:"Professional · B2 certificate"},nt:{es:"Llamadas, visitas y videollamadas comerciales en inglés. Cinco meses en Oslo.",en:"Sales calls, visits and video meetings in English. Five months in Oslo."}},
+ {n:{es:"Italiano",en:"Italian"},v:2,lv:{es:"Básico",en:"Basic"},nt:{es:"Lo entiendo muy bien y me defiendo hablando.",en:"Very good comprehension, basic speaking."}},
+ {n:{es:"Chino mandarín",en:"Mandarin Chinese"},v:1,lv:{es:"Principiante",en:"Beginner"},nt:{es:"Cuatro cursos aprobados en la universidad.",en:"Four university courses passed."}}
+];
+const SKILLS = {es:["Marketing B2B","Gestión de cuentas","Desarrollo de negocio","Planificación de campañas","Generación de leads","Venta consultiva","Procesos comerciales","Investigación de mercados","Marketing digital","Email marketing","Redes y contenidos","Ferias y eventos"],
+ en:["B2B marketing","Account management","Business development","Campaign planning","Lead generation","Consultative selling","Sales processes","Market research","Digital marketing","Email marketing","Social & content","Trade fairs & events"]};
+const TOOLS = ["HubSpot","Pipedrive","CRM"];
+const SECTORS = [
+ {n:{es:"Industria",en:"Industry"},d:{es:"Donde he trabajado con clientes B2B",en:"Where I've worked with B2B clients"}},
+ {n:{es:"Agua y medio ambiente",en:"Water & environment"},d:{es:"Lo que más me atrapó en IFAT",en:"What hooked me most at IFAT"}},
+ {n:{es:"Comunicación y medios",en:"Communication & media"},d:{es:"Donde he construido mi oficio",en:"Where I built my craft"}},
+ {n:{es:"Software",en:"Software"},d:{es:"Herramientas que ayudan a vender",en:"Tools that help sell"}}
+];
+const PLACES = [
+ {id:"bcn",city:"Barcelona",lat:41.39,lon:2.17,kind:"fair",ev:"Expoquimia",yr:"",lab:"r"},
+ {id:"gir",city:"Girona",lat:41.98,lon:2.82,kind:"study",ev:"UdG",yr:"2021–25",lab:"l"},
+ {id:"mad",city:"Madrid",lat:40.42,lon:-3.70,kind:"fair",ev:"SICUR",yr:"2026",lab:"b"},
+ {id:"mun",city:{es:"Múnich",en:"Munich"},lat:48.14,lon:11.58,kind:"fair",ev:"IFAT",yr:"2026",lab:"r"},
+ {id:"fra",city:{es:"Fráncfort",en:"Frankfurt"},lat:50.11,lon:8.68,kind:"fair",ev:"Ambiente",yr:"2026",lab:"r"},
+ {id:"dus",city:"Düsseldorf",lat:51.23,lon:6.77,kind:"fair",ev:"A+A",yr:"2025",lab:"l"},
+ {id:"osl",city:"Oslo",lat:59.91,lon:10.75,kind:"study",ev:"Erasmus",yr:"2024",lab:"r"}
+];
+const ICONS = [
+ '<svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11v2a2 2 0 0 0 2 2h1l4 4V5L7 9H6a2 2 0 0 0-2 2Z"/><path d="M15 9a4 4 0 0 1 0 6"/><path d="M18 6a8 8 0 0 1 0 12"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 9v6l-4 2v-8L3 4Z"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>'
+];
+
+let lang = "es", variant = "A", picks = new Set(), open = new Set(["int"]), stage = 0, qualified = false;
+const $ = s => document.querySelector(s);
+const tx = v => (v && typeof v === "object") ? v[lang] : v;
+const X = lon => 60 + (lon + 6) * 17.2, Y = lat => 20 + (61 - lat) * 26;
+
+function render(){
+  const L = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i]").forEach(el => { const v = L[el.dataset.i]; if (typeof v === "string") el.textContent = v; });
+  $("#l-es").setAttribute("aria-pressed", lang === "es"); $("#l-en").setAttribute("aria-pressed", lang === "en");
+  $("#map").setAttribute("aria-label", L.mapLabel);
+  renderAd(false);
+  $("#brief").innerHTML = L.brief.map(([a,b],i) => `<div><dt>${a}</dt><dd${i===5?' class="kpi"':""}>${b}</dd></div>`).join("");
+  $("#stats").innerHTML = L.stats.map(([n,pre,t]) => `<div><strong data-n="${n}" data-pre="${pre}">${pre}${n}</strong><span>${t}</span></div>`).join("");
+  const run = L.marq.map(m => `<span>${m}</span>`).join("");
+  $("#marq").innerHTML = run + run;
+  $("#props").innerHTML = L.props.map(([h,p],i) => `<article class="prop"><span class="ico">${ICONS[i]}</span><span class="n">0${i+1} / 03</span><h3>${h}</h3><p>${p}</p></article>`).join("");
+  $("#langs").innerHTML = LANGS.map(l => `<div class="lrow"><span class="nm">${tx(l.n)}</span><span class="meter" aria-label="${l.v}/5">${[1,2,3,4,5].map(i=>`<i class="${i<=l.v?"f":""}"></i>`).join("")}</span><span class="lv">${tx(l.lv)}</span>${l.nt?`<span class="nt">${tx(l.nt)}</span>`:""}</div>`).join("");
+  $("#skills").innerHTML = TOOLS.map(t=>`<span class="tool">${t}</span>`).join("") + SKILLS[lang].map(s=>`<span>${s}</span>`).join("");
+  $("#sectors").innerHTML = SECTORS.map(s=>`<div>${tx(s.n)}<small>${tx(s.d)}</small></div>`).join("");
+  $("#qText").textContent = qualified ? L.q1 : L.q0;
+  renderFunnel(); renderSeg(); renderMap();
+}
+
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let rotTimer = null, rotI = 0;
+function words(text, start){ return text.split(" ").map((w,i) => `<span class="w"><span style="--d:${(start+i)*0.07}s">${w}</span></span>`).join(" "); }
+function renderAd(){
+  const v = T[lang][variant], h = $("#adH");
+  clearInterval(rotTimer); rotI = 0;
+  const n = v.h.split(" ").length;
+  h.innerHTML = words(v.h, 0) + (v.rot ? ` <span class="w rot"><span style="--d:${n*0.07}s">${v.rot[0]}</span></span>` : "");
+  h.setAttribute("aria-label", v.rot ? v.h + " " + v.rot.join(" / ") : v.h);
+  const s = $("#adS"); s.textContent = v.s; s.style.animation = "none"; void s.offsetWidth; s.style.animation = "";
+  $("#adLabel").textContent = T[lang].ad + variant;
+  ["A","B","C"].forEach(k => $("#v"+k).setAttribute("aria-pressed", variant === k));
+  if (v.rot && !REDUCE){
+    rotTimer = setInterval(() => {
+      const r = h.querySelector(".rot"); if (!r) return;
+      r.classList.add("out");
+      setTimeout(() => { rotI = (rotI + 1) % v.rot.length; r.classList.remove("out"); r.innerHTML = `<span>${v.rot[rotI]}</span>`; }, 320);
+    }, 2300);
+  }
+}
+
+// Count-up on the stats strip
+function countUp(){
+  document.querySelectorAll("#stats strong").forEach((el,i) => {
+    const n = +el.dataset.n, pre = el.dataset.pre; if (REDUCE) return;
+    const t0 = performance.now() + i*120;
+    const step = now => { const p = Math.min(1, Math.max(0,(now - t0) / 900)); el.textContent = pre + Math.round(n * (1 - Math.pow(1-p,3))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+}
+
+// Confetti burst for the conversion moment
+function confetti(){
+  if (REDUCE) return;
+  const c = $("#confetti"), ctx = c.getContext("2d"), dpr = devicePixelRatio || 1;
+  c.width = innerWidth * dpr; c.height = innerHeight * dpr; ctx.scale(dpr, dpr);
+  const cs = getComputedStyle(document.documentElement);
+  const cols = [cs.getPropertyValue("--blue"), cs.getPropertyValue("--blue-2"), cs.getPropertyValue("--ok"), "#FFFFFF"].map(s => s.trim());
+  const b = $("#qualify").getBoundingClientRect(), ox = b.left + b.width/2, oy = b.top + b.height/2;
+  const P = Array.from({length:140}, () => ({x:ox, y:oy, vx:(Math.random()-.5)*14, vy:-Math.random()*13-4, r:Math.random()*6+3, a:Math.random()*6, va:(Math.random()-.5)*.4, c:cols[Math.random()*cols.length|0]}));
+  const t0 = performance.now();
+  const frame = now => {
+    const t = now - t0; ctx.clearRect(0,0,innerWidth,innerHeight);
+    P.forEach(p => { p.vy += .38; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.a += p.va;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.globalAlpha = Math.max(0, 1 - t/1800); ctx.fillStyle = p.c; ctx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2); ctx.restore(); });
+    if (t < 1800) requestAnimationFrame(frame); else ctx.clearRect(0,0,innerWidth,innerHeight);
+  };
+  requestAnimationFrame(frame);
+}
+
+// Spotlight that follows the pointer on the ad
+const adEl = document.querySelector(".ad");
+adEl.addEventListener("pointermove", e => { const r = adEl.getBoundingClientRect(); adEl.style.setProperty("--mx", (e.clientX-r.left)+"px"); adEl.style.setProperty("--my", (e.clientY-r.top)+"px"); });
+
+// Gentle 3D tilt on value cards
+if (!REDUCE) {
+  $("#props").addEventListener("pointermove", e => { const card = e.target.closest(".prop"); if (!card) return;
+    const r = card.getBoundingClientRect(), dx = (e.clientX-r.left)/r.width-.5, dy = (e.clientY-r.top)/r.height-.5;
+    card.style.transform = `perspective(800px) rotateY(${dx*8}deg) rotateX(${-dy*8}deg) translateY(-4px)`; });
+  $("#props").addEventListener("pointerout", e => { const card = e.target.closest(".prop"); if (card && !card.contains(e.relatedTarget)) card.style.transform = ""; });
+}
+
+// Scroll reveal (transform only)
+function initReveal(){ if (REDUCE || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold:.12});
+  document.querySelectorAll("main section:not(#awareness) .h2, #props, .reach, .seg, #tl1, #tl2, .two, .convert").forEach(el => {
+    if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("rv"); io.observe(el); }
+  });
+}
+
+function renderFunnel(){
+  const ids = ["awareness","interes","consideracion","evaluacion","conversion"];
+  const reached = qualified ? 5 : stage + 1;
+  $("#funnel").innerHTML = T[lang].stages.map((n,i) =>
+    `<li><a href="#${ids[i]}" class="${i < stage || qualified ? "done" : i === stage ? "now" : ""}"><span><b>0${i+1}</b><em>${n}</em></span></a></li>`).join("");
+  const pct = Math.round(reached / 5 * 100) + "%";
+  $("#rate").textContent = pct; $("#mbar").style.width = pct;
+  bindAnchors($("#funnel"));
+}
+
+function score(j){ let n = 0; picks.forEach(k => { if (j.tags.includes(k)) n++; }); return n; }
+
+function renderSeg(){
+  const L = T[lang], box = $("#chips");
+  box.querySelectorAll(".chip,.clear").forEach(n => n.remove());
+  Object.entries(TAGS).forEach(([k,t]) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.id = "chip-" + k; b.textContent = t[lang];
+    b.setAttribute("aria-pressed", picks.has(k));
+    b.onclick = () => {
+      picks.has(k) ? picks.delete(k) : picks.add(k);
+      if (picks.size){ const best = JOBS.reduce((a,c) => score(c) > score(a) ? c : a); open = new Set([best.id]); }
+      renderSeg();
+    };
+    box.appendChild(b);
+  });
+  if (picks.size){ const c = document.createElement("button"); c.type="button"; c.className="clear"; c.textContent=L.clear; c.onclick=()=>{picks.clear(); renderSeg();}; box.appendChild(c); }
+  const p = $("#pitch");
+  if (!picks.size) p.textContent = L.pitch0;
+  else {
+    const ks = [...picks], names = ks.map(k => `<b>${TAGS[k][lang].toLowerCase()}</b>`);
+    const joined = names.length > 1 ? names.slice(0,-1).join(", ") + L.and + names.at(-1) : names[0];
+    const body = ks.map(k => TAGS[k].p[lang]).join(" ");
+    p.innerHTML = `${L.pitchLead}${joined}: ${body.charAt(0).toUpperCase() + body.slice(1)}`;
+  }
+  [1,2].forEach(g => {
+    $("#tl" + g).innerHTML = JOBS.filter(j => j.g === g).map(j => {
+      const sc = score(j), isOpen = open.has(j.id);
+      const cls = picks.size ? (sc ? " hit" : " dim") : "";
+      return `<li class="camp${cls}" data-open="${isOpen}">
+        <button type="button" id="camp-${j.id}" aria-expanded="${isOpen}" data-id="${j.id}">
+          <span class="when">${L.air}<b>${j.yr}</b></span>
+          <span class="what"><h3>${tx(j.role)}${picks.size && sc ? `<span class="rel">${L.rel}</span>` : ""}</h3><p>${j.co}${j.ctx ? " · " + tx(j.ctx) : ""}</p></span>
+          <span class="chev" aria-hidden="true">+</span>
+        </button>
+        <div class="body"${isOpen ? "" : " hidden"}>
+          <ul>${j.pts[lang].map(x => `<li>${x}</li>`).join("")}</ul>
+          <div class="tags">${j.tags.map(t => `<span class="tag">${TAGS[t][lang]}</span>`).join("")}</div>
+        </div></li>`;
+    }).join("");
+  });
+  document.querySelectorAll(".camp > button").forEach(b => b.onclick = () => {
+    const id = b.dataset.id; open.has(id) ? open.delete(id) : open.add(id); renderSeg();
+  });
+}
+
+function renderMap(){
+  const bcn = PLACES[0]; let s = "";
+  [-5,0,5,10,15].forEach(l => { s += `<line x1="${X(l)}" y1="10" x2="${X(l)}" y2="585" stroke="var(--line)"/><text x="${X(l)+4}" y="596" font-family="DM Mono, monospace" font-size="11" fill="var(--muted)">${l}°</text>`; });
+  [40,45,50,55,60].forEach(l => { s += `<line x1="40" y1="${Y(l)}" x2="550" y2="${Y(l)}" stroke="var(--line)"/><text x="44" y="${Y(l)-4}" font-family="DM Mono, monospace" font-size="11" fill="var(--muted)">${l}°N</text>`; });
+  PLACES.slice(1).forEach(p => {
+    const x1 = X(bcn.lon), y1 = Y(bcn.lat), x2 = X(p.lon), y2 = Y(p.lat);
+    const mx = (x1+x2)/2 - (y2-y1)*.18, my = (y1+y2)/2 + (x2-x1)*.18;
+    s += `<path class="leg" data-p="${p.id}" d="M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}"/>`;
+  });
+  PLACES.forEach(p => {
+    const x = X(p.lon), y = Y(p.lat), solid = p.kind === "fair";
+    const lx = p.lab==="l" ? x-12 : p.lab==="b" ? x : x+12, ly = p.lab==="b" ? y+26 : y+6;
+    const an = p.lab==="l" ? "end" : p.lab==="b" ? "middle" : "start";
+    if (p.id==="bcn") s += `<circle class="leg-ring" cx="${x}" cy="${y}" r="12" fill="none" stroke="var(--blue)" stroke-width="2"/>`;
+    s += `<circle cx="${x}" cy="${y}" r="${p.id==="bcn"?9:6}" fill="${solid?"var(--blue)":"var(--surface)"}" stroke="var(--blue)" stroke-width="2.5"/>`;
+    s += `<text x="${lx}" y="${ly}" text-anchor="${an}" font-family="Figtree, system-ui, sans-serif" font-size="17" font-weight="600" fill="var(--ink)">${tx(p.city)}</text>`;
+  });
+  $("#map").innerHTML = s;
+  const order = ["mun","fra","dus","mad","bcn","osl","gir"];
+  $("#legs").innerHTML = order.map(id => { const p = PLACES.find(q => q.id === id);
+    return `<li data-p="${id}"><span class="k mono">${p.kind==="fair"?T[lang].fair:T[lang].study}</span><span><span class="ev">${p.ev}</span> <span class="city">${tx(p.city)}${id==="bcn"?" · "+T[lang].home:""}</span></span><span class="k mono">${p.yr}</span></li>`; }).join("");
+  document.querySelectorAll("#legs li").forEach(li => {
+    const on = v => { li.classList.toggle("on", v); const l = document.querySelector(`.leg[data-p="${li.dataset.p}"]`); if (l) l.classList.toggle("on", v); };
+    li.onmouseenter = () => on(true); li.onmouseleave = () => on(false);
+  });
+}
+
+function bindAnchors(root){
+  root.querySelectorAll('a[href^="#"]').forEach(a => a.onclick = e => {
+    const t = document.querySelector(a.getAttribute("href")); if (!t) return;
+    e.preventDefault(); t.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  });
+}
+
+// Stage tracking by scroll position
+function track(){
+  const secs = [...document.querySelectorAll("main section")];
+  const mid = window.innerHeight * .4;
+  let s = 0; secs.forEach((el,i) => { if (el.getBoundingClientRect().top < mid) s = i; });
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) s = secs.length - 1;
+  if (s !== stage){ stage = s; renderFunnel(); }
+}
+addEventListener("scroll", track, {passive:true});
+addEventListener("resize", track);
+
+["A","B","C"].forEach(k => $("#v"+k).onclick = () => { if (variant !== k){ variant = k; renderAd(); } });
+$("#l-es").onclick = () => { lang = "es"; render(); };
+$("#l-en").onclick = () => { lang = "en"; render(); };
+$("#qualify").onclick = () => {
+  qualified = !qualified;
+  $("#qualify").setAttribute("aria-pressed", qualified);
+  $("#qText").textContent = qualified ? T[lang].q1 : T[lang].q0;
+  $("#ok").textContent = qualified ? T[lang].qMsg : "";
+  if (qualified) confetti();
+  renderFunnel();
+};
+$("#copy").onclick = () => {
+  const url = "https://www.linkedin.com/in/marc-sanchez-vallespi/";
+  const fail = () => { const r = document.createRange(); r.selectNodeContents($("#url")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("#ok").textContent = T[lang].copyFail; };
+  try { navigator.clipboard.writeText(url).then(() => $("#ok").textContent = T[lang].copied, fail); } catch(e) { fail(); }
+};
+bindAnchors(document);
+
+if (location.hash === "#en") lang = "en";
+render(); track(); countUp(); initReveal();
+</script>
+
+</body>
+</html>
